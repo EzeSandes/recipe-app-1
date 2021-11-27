@@ -1,0 +1,106 @@
+/* ******** SEARCH SECTION *********** */
+header {
+  padding: 1rem 1rem 2rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+header form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#search-term {
+  width: 70%;
+  border-style: none;
+  padding: 0.8rem;
+  border-radius: 4px;
+
+  color: #000;
+  background-color: #dcdcdc;
+}
+
+.btn-search {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border-style: none;
+}
+
+.search-icon {
+  width: 3rem;
+  stroke: #9b9b9b;
+}
+
+/* ******** FAV MEALS SECTION *********** */
+.section-favourites {
+  background-color: #ffddff;
+  padding: 0.5rem;
+}
+
+.fav-body {
+  margin: 0 1rem;
+}
+.fav-title {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.fav-meals {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5rem;
+
+  text-align: center;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.fav-meal-img {
+  width: 9rem;
+  border-radius: 50%;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  position: relative;
+}
+
+.delete-fav-icon {
+  position: absolute;
+  width: 3rem;
+  right: -0.5rem;
+  top: 0;
+
+  cursor: pointer;
+  /* stroke: #b39bb3; */
+  stroke: #cb9e96;
+
+  transition: background-color 0.3s;
+  transition: stroke 0.3s;
+}
+
+.delete-fav-icon:hover,
+.delete-fav-icon:active {
+  background-color: #000;
+  stroke: #fff;
+}
+
+/* ********MEALS SECTION *********** */
+
+.meals {
+  padding: 3rem 0.5rem;
+}
+
+.meal-img {
+  height: 30rem;
+}
+/*  */

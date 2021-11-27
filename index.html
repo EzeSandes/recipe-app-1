@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container-mobile">
+      <header>
+        <form action="search-term">
+          <input
+            type="text"
+            name="search-input"
+            id="search-term"
+            placeholder="Chicken, Chocolate, etc."
+          />
+          <button class="btn-search">
+            <svg
+              class="w-6 h-6 search-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </button>
+        </form>
+      </header>
+
+      <!-- FAV MEALS -->
+      <section class="section-favourites">
+        <div class="fav-body">
+          <h3 class="fav-title">Favourites meals</h3>
+          <ul class="fav-meals">
+            <li class="fav-item">
+              <img
+                class="fav-meal-img"
+                src="https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg/preview"
+                alt=""
+              />
+              <span class="fav-name">Fruit and Cream</span>
+              <!-- Fruit and Cream Cheese Breakfast Pastries -->
+              <svg
+                class="w-6 h-6 delete-fav-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </li>
+            <li class="fav-item">
+              <img
+                class="fav-meal-img"
+                src="https://www.themealdb.com/images/media/meals/twspvx1511784937.jpg/preview"
+                alt=""
+              />
+              <span class="fav-name">Chocolate Souffle"</span>
+              <svg
+                class="w-6 h-6 delete-fav-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </li>
+            <li class="fav-item">
+              <img
+                class="fav-meal-img"
+                src="https://www.themealdb.com/images/media/meals/twspvx1511784937.jpg/preview"
+                alt=""
+              />
+              <span class="fav-name">Chocolate Souffle"</span>
+              <svg
+                class="w-6 h-6 delete-fav-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </li>
+            <li class="fav-item">
+              <img
+                class="fav-meal-img"
+                src="https://www.themealdb.com/images/media/meals/twspvx1511784937.jpg/preview"
+                alt=""
+              />
+              <span class="fav-name">Chocolate Souffle"</span>
+              <svg
+                class="w-6 h-6 delete-fav-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </li>
+            <!-- <li class="fav-item">
+              <img src="" alt="" />
+              <span class="fav-name"></span>
+                            <svg
+                class="w-6 h-6 delete-fav-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </li> -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-meals">
+        <ul class="meals">
+          <li class="meal-item">
+            <img
+              class="meal-img"
+              src="https://www.themealdb.com/images/media/meals/xvrrux1511783685.jpg"
+              alt=""
+            />
+            <div class="meal-text-box">
+              <h3 class="meal-name">French Onion Soup</h3>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
