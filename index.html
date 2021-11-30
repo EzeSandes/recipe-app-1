@@ -25,7 +25,7 @@
             id="search-term"
             placeholder="Chicken, Chocolate, etc."
           />
-          <button class="btn-search">
+          <button class="btn-search" title="Search">
             <svg
               class="w-6 h-6 search-icon"
               fill="none"
@@ -50,111 +50,54 @@
           <h3 class="fav-title">Favourites meals</h3>
           <ul class="fav-meals">
             <li class="fav-item">
-              <img
-                class="fav-meal-img"
-                src="https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg/preview"
-                alt=""
-              />
-              <span class="fav-name">Fruit and Cream</span>
-              <!-- Fruit and Cream Cheese Breakfast Pastries -->
-              <svg
-                class="w-6 h-6 delete-fav-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
+              <a href="#" class="fav-preview">
+                <img
+                  class="fav-meal-img"
+                  src="https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg/preview"
+                  alt=""
+                />
+                <span class="fav-name">Fruit and Cream</span>
+                <!-- Fruit and Cream Cheese Breakfast Pastries -->
+                <svg
+                  class="w-6 h-6 delete-fav-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </a>
             </li>
-            <li class="fav-item">
-              <img
-                class="fav-meal-img"
-                src="https://www.themealdb.com/images/media/meals/twspvx1511784937.jpg/preview"
-                alt=""
-              />
-              <span class="fav-name">Chocolate Souffle"</span>
-              <svg
-                class="w-6 h-6 delete-fav-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </li>
-            <li class="fav-item">
-              <img
-                class="fav-meal-img"
-                src="https://www.themealdb.com/images/media/meals/twspvx1511784937.jpg/preview"
-                alt=""
-              />
-              <span class="fav-name">Chocolate Souffle"</span>
-              <svg
-                class="w-6 h-6 delete-fav-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </li>
-            <li class="fav-item">
-              <img
-                class="fav-meal-img"
-                src="https://www.themealdb.com/images/media/meals/twspvx1511784937.jpg/preview"
-                alt=""
-              />
-              <span class="fav-name">Chocolate Souffle"</span>
-              <svg
-                class="w-6 h-6 delete-fav-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </li>
+
             <!-- <li class="fav-item">
-              <img src="" alt="" />
-              <span class="fav-name"></span>
-                            <svg
-                class="w-6 h-6 delete-fav-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
+              <a href="#MEAL_ID" class="fav-preview">
+                <img
+                  class="fav-meal-img"
+                  src="https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg/preview"
+                  alt=""
+                />
+                <span class="fav-name">MEAL_NAME</span>
+                <svg
+                  class="w-6 h-6 delete-fav-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </a>
             </li> -->
           </ul>
         </div>
@@ -162,18 +105,260 @@
 
       <section class="section-meals">
         <ul class="meals">
-          <li class="meal-item">
-            <img
-              class="meal-img"
-              src="https://www.themealdb.com/images/media/meals/xvrrux1511783685.jpg"
-              alt=""
-            />
-            <div class="meal-text-box">
-              <h3 class="meal-name">French Onion Soup</h3>
-            </div>
+          <li class="meal-preview">
+            <a href="#52903" class="meal-item">
+              <img
+                class="meal-img"
+                src="https://www.themealdb.com/images/media/meals/xvrrux1511783685.jpg"
+                alt=""
+              />
+              <div class="meal-text-body">
+                <div class="meal-text-box">
+                  <h3 class="meal-name">French Onion Soup</h3>
+                  <span>Category: <span class="category">Chicken</span></span>
+                </div>
+                <svg
+                  class="w-6 h-6 save-fav-meal"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+            </a>
           </li>
+          <li class="meal-preview">
+            <a href="#52903" class="meal-item">
+              <img
+                class="meal-img"
+                src="https://www.themealdb.com/images/media/meals/rsqwus1511640214.jpg"
+                alt=""
+              />
+              <div class="meal-text-body">
+                <div class="meal-text-box">
+                  <h3 class="meal-name">Summer Pudding</h3>
+                  <span>Category: <span class="category">Dessert</span></span>
+                </div>
+                <svg
+                  class="w-6 h-6 save-fav-meal"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+            </a>
+          </li>
+          <!-- <li class="meal-preview">
+            <a href="#MEAL_ID" class="meal-item">
+              <img
+                class="meal-img"
+                src="MEAL_IMG"
+                alt=""
+              />
+              <div class="meal-text-body">
+                <div class="meal-text-box">
+                  <h3 class="meal-name">MEAL_NAME</h3>
+                  <span>Category: <span class="category">MEAL_CATEGORY</span></span>
+                </div>
+                <svg
+                  class="w-6 h-6 save-fav-meal"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+            </a>
+          </li> -->
         </ul>
+        <div class="popup-container hidden" id="meal-popup">
+          <div class="popup">
+            <button class="btn-close-popup">
+              <svg
+                class="w-6 h-6 close-popup-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+            <div class="meal-info">
+              <img
+                class="meal-img"
+                src="https://www.themealdb.com/images/media/meals/xvrrux1511783685.jpg"
+                alt=""
+              />
+              <div class="meal-info-body">
+                <h2 class="meal-title">French Onion Soup</h2>
+                <div class="meal-box-feature">
+                  <div class="meal-feature">
+                    <svg
+                      class="w-6 h-6 popup-icons"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                      ></path>
+                    </svg>
+                    <span>Category: <span class="category">Soup</span></span>
+                  </div>
+                  <div class="meal-feature">
+                    <svg
+                      class="w-6 h-6 popup-icons"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span>Area: <span class="category">French</span></span>
+                  </div>
+                </div>
+                <div class="meal-ingredients">
+                  <h3 class="title-ingredients">Ingredients</h3>
+                  <ul class="ingredients-list">
+                    <li class="ingredient-item">
+                      <svg
+                        class="w-6 h-6 popup-icons"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <div class="ingredient-box">
+                        <span class="ingredient-measure">50gr</span> -
+                        <span class="ingredient">Butter</span>
+                      </div>
+                    </li>
+                    <li class="ingredient-item">
+                      <svg
+                        class="w-6 h-6 popup-icons"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <div class="ingredient-box">
+                        <span class="ingredient-measure">50gr</span> -
+                        <span class="ingredient">ry White Wine</span>
+                      </div>
+                    </li>
+                    <li class="ingredient-item">
+                      <svg
+                        class="w-6 h-6 popup-icons"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <div class="ingredient-box">
+                        <span class="ingredient-measure">50gr</span> -
+                        <span class="ingredient">Butter</span>
+                      </div>
+                    </li>
+                    <li class="ingredient-item"></li>
+                  </ul>
+                </div>
+
+                <!-- Meal Instructions -->
+                <div class="meal-intructions-box">
+                  <h3 class="instruction-title">Instructions</h3>
+                  <p class="meal-instruction">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Tempora perspiciatis aliquid iste a impedit quod sed odit
+                    earum culpa? Minus, aliquid nulla accusamus minima esse
+                    laudantium sunt magni non ab?
+                  </p>
+                </div>
+
+                <a class="meal-source" href="#">
+                  <div class="meal-source-box">
+                    <svg
+                      class="w-6 h-6 popup-icons"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                      ></path>
+                    </svg>
+                    <span>Source</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
+      <div class="copyright">
+        Copyright &copy; <span class="copyright-date"></span>. José Ezequiel
+        Sandes.
+      </div>
     </div>
   </body>
 </html>
