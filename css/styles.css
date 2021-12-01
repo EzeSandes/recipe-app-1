@@ -256,9 +256,9 @@ header form {
 .meal-box-feature {
   margin-bottom: 2rem;
 }
-.ingredient-item {
-  margin-bottom: 1.5rem;
-}
+
+/* .ingredient-item {
+} */
 
 .popup-icons {
   width: 2rem;
@@ -276,8 +276,9 @@ header form {
 
 .ingredients-list {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .meal-instruction {
