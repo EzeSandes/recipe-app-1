@@ -114,3 +114,14 @@ html::-webkit-scrollbar-thumb {
     transform: rotate(360deg);
   }
 }
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-meal-icon {
+  color: #555;
+  width: 23rem;
+}
