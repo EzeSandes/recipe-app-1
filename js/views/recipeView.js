@@ -1,77 +1,21 @@
-class RecipeView {
-  #parentElement = document.querySelector(".meal-info");
-  #data; // recipe obj
-  #errorMessage = "We could not find that recipe. Please try another one!";
+import View from "./View.js";
 
-  render(data) {
-    this.#data = data;
-    const markup = this.#generateMarkup();
-    this.#clear();
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
+class RecipeView extends View {
+  _parentElement = document.querySelector(".meal-info");
+  _popup = document.querySelector(".popup-container");
 
-  #clear() {
-    this.#parentElement.innerHTML = "";
-  }
-
-  renderSpinner() {
-    const markup = `<div class="spinner">
-   <svg
-     class="w-6 h-6"
-     fill="none"
-     stroke="currentColor"
-     viewBox="0 0 24 24"
-     xmlns="http://www.w3.org/2000/svg"
-   >
-     <path
-       stroke-linecap="round"
-       stroke-linejoin="round"
-       stroke-width="2"
-       d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-     ></path>
-   </svg>
- </div>`;
-
-    this.#parentElement.innerHTML = "";
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  renderError(message = this.#errorMessage) {
-    const markup = `
-    <div class="error">
-            <svg
-              class="w-6 h-6 error-meal-icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-              ></path>
-            </svg>
-            <p class="error-msg">${message}</p>
-          </div>
-    `;
-
-    this.#clear();
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
+  _errorMessage = "We could not find that recipe. Please try another one!";
 
   //Only return an HTML String
-  #generateMarkup() {
+  _generateMarkup() {
     return `
-   <div class="meal-info">
      <img
        class="meal-img"
-       src="${this.#data.imgURL}"
-       alt="${this.#data.title}"
+       src="${this._data.imgURL}"
+       alt="${this._data.title}"
      />
      <div class="meal-info-body">
-       <h2 class="meal-title">${this.#data.title}</h2>
+       <h2 class="meal-title">${this._data.title}</h2>
        <div class="meal-box-feature">
          <div class="meal-feature">
            <svg
@@ -89,7 +33,7 @@ class RecipeView {
              ></path>
            </svg>
            <span>Category: <span class="category">${
-             this.#data.category
+             this._data.category
            }</span></span>
          </div>
          <div class="meal-feature">
@@ -105,13 +49,13 @@ class RecipeView {
                clip-rule="evenodd"
              ></path>
            </svg>
-           <span>Area: <span class="category">${this.#data.area}</span></span>
+           <span>Area: <span class="category">${this._data.area}</span></span>
          </div>
        </div>
        <div class="meal-ingredients">
          <h3 class="title-ingredients">Ingredients</h3>
          <ul class="ingredients-list">
-         ${this.#data.ingredients.map(this.#generateMarkupIngredients).join("")}
+         ${this._data.ingredients.map(this._generateMarkupIngredients).join("")}
          </ul>
        </div>
  
@@ -119,11 +63,11 @@ class RecipeView {
        <div class="meal-intructions-box">
          <h3 class="instruction-title">Instructions</h3>
          <p class="meal-instruction">
-           ${this.#data.instructions}
+           ${this._data.instructions}
          </p>
        </div>
  
-       <a class="meal-source" href="${this.#data.sourceURL}">
+       <a class="meal-source" href="${this._data.sourceURL}">
          <div class="meal-source-box">
            <svg
              class="w-6 h-6 popup-icons"
@@ -145,7 +89,7 @@ class RecipeView {
      </div>`;
   }
 
-  #generateMarkupIngredients(ing) {
+  _generateMarkupIngredients(ing) {
     return `<li class="ingredient-item">
    <svg
      class="w-6 h-6 popup-icons"
@@ -169,19 +113,22 @@ class RecipeView {
   }
 
   addHandlerRender(handler) {
-    ["load"].forEach((typeEvent) =>
+    ["hashchange", "load"].forEach((typeEvent) =>
       window.addEventListener(typeEvent, handler)
     );
   }
 
-  addHandlerClosePopup() {
-    this.#parentElement.previousElementSibling.addEventListener(
-      "click",
-      function (e) {
-        e.target.closest(".popup-container").classList.toggle("hidden");
-      }
-    );
-  }
+  // addHandlerClosePopup() {
+  //   // this._parentElement.previousElementSibling.addEventListener(
+  //   this._parentElement.addEventListener("click", function (e) {
+  //     e.target.closest(".popup-container").classList.toggle("hidden");
+  //   });
+  // }
+
+  // _showPopup() {
+  //   console.log(this._popup);
+  //   this._popup.classList.toggle("hidden");
+  // }
 }
 
 export default new RecipeView();

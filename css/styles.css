@@ -11,7 +11,7 @@ header form {
   gap: 0.5rem;
 }
 
-#search-term {
+.search-term {
   width: 70%;
   border-style: none;
   padding: 0.8rem;

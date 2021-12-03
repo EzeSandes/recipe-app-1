@@ -3,6 +3,8 @@
 
 2_ Search by Ingredients: https://www.themealdb.com/api/json/v1/1/search.php?s=INGREDIENT
 
+3_Future functionality: Search by categorie -> https://www.themealdb.com/api/json/v1/1/filter.php?c=dessert
+
 Ej:
 1_ https://www.themealdb.com/api/json/v1/1/lookup.php?i=53005
 
@@ -16,6 +18,10 @@ import { getJSON } from "./helpers.js";
 //All recipes will stay here. This is the "conductor" from each MVC file
 export const state = {
   recipe: {},
+  search: {
+    query: "",
+    results: [],
+  },
 };
 
 ////////
@@ -63,26 +69,28 @@ export const loadRecipe = async function (id) {
       imgURL: mealData.strMealThumb,
       ingredients: getIngredients(mealData),
     };
-
-    console.log(state.recipe);
   } catch (err) {
     console.error("Error ⛔⛔⛔", err);
     throw err;
   }
 };
 
-/*
-export const loadSearchResults = async function (term) {
+export const loadSearchResults = async function (query) {
   try {
-    const data = await getJSON(`${API_URL}search.php?s=${term}`);
-    console.log(data);
+    state.search.query = query;
 
-    // data.meals.map();
+    const data = await getJSON(`${API_URL}search.php?s=${query}`);
+
+    state.search.results = data.meals.map((meal) => {
+      return {
+        id: meal.idMeal,
+        title: meal.strMeal,
+        category: meal.strCategory,
+        imgURL: meal.strMealThumb,
+      };
+    });
   } catch (err) {
     console.error("Error ⛔⛔⛔", err);
     throw err;
   }
 };
-
-loadSearchResults("pizza");
-*/
