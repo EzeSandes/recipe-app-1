@@ -22,3 +22,16 @@ function timeOut(seg) {
     }, seg * 1000);
   });
 }
+
+////////// GET YEAR
+
+export function addHandlerRenderYear(handler) {
+  window.addEventListener("load", handler);
+}
+
+export function setYear() {
+  document.querySelector(".copyright-date").innerHTML =
+    new Date().getFullYear();
+}
+
+//////////

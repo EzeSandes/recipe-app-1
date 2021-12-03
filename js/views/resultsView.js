@@ -4,7 +4,7 @@ class ResultsView extends View {
   _parentElement = document.querySelector(".meals");
 
   _generateMarkup() {
-    console.log(this._data);
+    // console.log(this._data);
 
     return this._data.map(this._generateMarkupResults).join("");
   }
@@ -39,6 +39,14 @@ class ResultsView extends View {
      </div>
    </a>
  </li>`;
+  }
+
+  addHandlerShowRecipe(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      if (!e.target.closest(".meal-preview")) return;
+
+      handler();
+    });
   }
 }
 

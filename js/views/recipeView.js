@@ -118,17 +118,22 @@ class RecipeView extends View {
     );
   }
 
-  // addHandlerClosePopup() {
-  //   // this._parentElement.previousElementSibling.addEventListener(
-  //   this._parentElement.addEventListener("click", function (e) {
-  //     e.target.closest(".popup-container").classList.toggle("hidden");
-  //   });
-  // }
+  addHandlerClosePopup() {
+    this._popup
+      .querySelector(".btn-close-popup")
+      .addEventListener("click", () => {
+        /*Warning!: Here I can't use "this._popup" with a normal function "function(){}" 
+        declaration because "this" will not linked to nothing. 
+        Instead, use an arrow function witch will not have acces to the "this" keyword 
+        => "this._popup" will only be linked to the protected variable.
+         */
+        this._popup.classList.toggle("hidden");
+      });
+  }
 
-  // _showPopup() {
-  //   console.log(this._popup);
-  //   this._popup.classList.toggle("hidden");
-  // }
+  _showPopup() {
+    this._popup.classList.remove("hidden"); // Not "toggle()". Bug fixed :)
+  }
 }
 
 export default new RecipeView();

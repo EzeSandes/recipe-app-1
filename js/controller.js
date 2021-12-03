@@ -2,12 +2,15 @@ import * as model from "./model.js";
 import recipeView from "./views/recipeView.js";
 import searchView from "./views/searchView.js";
 import resultsView from "./views/resultsView.js";
+import { addHandlerRenderYear, setYear } from "./helpers.js";
 
 const controlRecipe = async function () {
   try {
     const id = window.location.hash.slice(1);
-    console.log("Hash: ", window.location.hash);
+    console.log("Hash: ", window.location.hash.slice(1));
     if (!id) return;
+
+    recipeView._showPopup();
 
     // 0_ Loading spinner
     recipeView.renderSpinner();
@@ -48,9 +51,23 @@ const controlSearchResults = async function () {
 
 //////////
 
+const controlDisplayRecipe = function () {
+  // 1_ Show popup
+  recipeView._showPopup();
+};
+
+const controlCopyrightYear = function () {
+  setYear();
+};
+//////////
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipe);
+  recipeView.addHandlerClosePopup();
   searchView.addHandlerSearch(controlSearchResults);
+  resultsView.addHandlerShowRecipe(controlDisplayRecipe);
+
+  addHandlerRenderYear(controlCopyrightYear);
 };
 
 init();
