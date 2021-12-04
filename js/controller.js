@@ -37,12 +37,27 @@ const controlSearchResults = async function () {
 
     // 1_ Get search query
     const query = searchView.getQuery();
-    if (!query) return;
+    if (!query) {
+      resultsView.renderError("No term to search! Please try again");
+      return;
+    }
 
     // 2_Load search results. Only manipulate the state.
     await model.loadSearchResults(query);
 
     // 3_ Render results.
+    resultsView.render(model.state.search.results);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const controlRandomResult = async function () {
+  try {
+    resultsView.renderSpinner();
+
+    await model.loadRandomRecipe();
+
     resultsView.render(model.state.search.results);
   } catch (err) {
     console.log(err);
@@ -66,6 +81,7 @@ const init = function () {
   recipeView.addHandlerClosePopup();
   searchView.addHandlerSearch(controlSearchResults);
   resultsView.addHandlerShowRecipe(controlDisplayRecipe);
+  resultsView.addHandlerRandomRecipe(controlRandomResult);
 
   addHandlerRenderYear(controlCopyrightYear);
 };

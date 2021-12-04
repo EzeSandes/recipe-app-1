@@ -48,6 +48,10 @@ class ResultsView extends View {
       handler();
     });
   }
+
+  addHandlerRandomRecipe(handler) {
+    window.addEventListener("load", handler);
+  }
 }
 
 export default new ResultsView();

@@ -3,7 +3,9 @@
 
 2_ Search by Ingredients: https://www.themealdb.com/api/json/v1/1/search.php?s=INGREDIENT
 
-3_Future functionality: Search by categorie -> https://www.themealdb.com/api/json/v1/1/filter.php?c=dessert
+3_ Search random meal: https://www.themealdb.com/api/json/v1/1/random.php
+
+4_Future functionality: Search by categorie -> https://www.themealdb.com/api/json/v1/1/filter.php?c=dessert
 
 Ej:
 1_ https://www.themealdb.com/api/json/v1/1/lookup.php?i=53005
@@ -75,11 +77,9 @@ export const loadRecipe = async function (id) {
   }
 };
 
-export const loadSearchResults = async function (query) {
+async function getDataStateSearch(url) {
   try {
-    state.search.query = query;
-
-    const data = await getJSON(`${API_URL}search.php?s=${query}`);
+    const data = await getJSON(url);
 
     state.search.results = data.meals.map((meal) => {
       return {
@@ -89,6 +89,25 @@ export const loadSearchResults = async function (query) {
         imgURL: meal.strMealThumb,
       };
     });
+  } catch (err) {
+    throw err;
+  }
+}
+
+export const loadSearchResults = async function (query) {
+  try {
+    state.search.query = query;
+
+    await getDataStateSearch(`${API_URL}search.php?s=${query}`);
+  } catch (err) {
+    console.error("Error ⛔⛔⛔", err);
+    throw err;
+  }
+};
+
+export const loadRandomRecipe = async function () {
+  try {
+    await getDataStateSearch(`${API_URL}random.php`);
   } catch (err) {
     console.error("Error ⛔⛔⛔", err);
     throw err;
