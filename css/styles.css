@@ -164,7 +164,7 @@ header form {
   cursor: pointer;
 }
 
-.active .save-fav-meal {
+.fill {
   fill: #e63946;
   color: #e63946;
 }

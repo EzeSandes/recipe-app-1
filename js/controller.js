@@ -2,12 +2,12 @@ import * as model from "./model.js";
 import recipeView from "./views/recipeView.js";
 import searchView from "./views/searchView.js";
 import resultsView from "./views/resultsView.js";
+import bookmarksView from "./views/bookmarksView.js";
 import { addHandlerRenderYear, setYear } from "./helpers.js";
 
 const controlRecipe = async function () {
   try {
     const id = window.location.hash.slice(1);
-    console.log("Hash: ", window.location.hash.slice(1));
     if (!id) return;
 
     recipeView._showPopup();
@@ -46,9 +46,9 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
 
     // 3_ Render results.
-    resultsView.render(model.state.search.results);
+    resultsView.render(model.state);
   } catch (err) {
-    console.log(err);
+    resultsView.renderError();
   }
 };
 
@@ -58,10 +58,32 @@ const controlRandomResult = async function () {
 
     await model.loadRandomRecipe();
 
-    resultsView.render(model.state.search.results);
+    resultsView.render(model.state);
   } catch (err) {
-    console.log(err);
+    resultsView.renderError();
   }
+};
+
+// Add / Delete Bookmark
+const controlAddRemoveBookmark = async function (id, bookmarked = false) {
+  try {
+    if (bookmarked) {
+      await model.loadRecipe(id);
+      model.addBookmark(model.state.recipe);
+    } else model.deleteBookmark(id);
+
+    // Render bookmarks
+    bookmarksView.render(model.state.bookmarks);
+
+    // Change the Fav Icons if it is deleted from bookmarks
+    if (!bookmarked) resultsView.render(model.state);
+  } catch (err) {
+    console.error("⛔ERROR: BOOKMARKS⛔");
+  }
+};
+
+const controlBookmarks = function () {
+  bookmarksView.render(model.state.bookmarks);
 };
 
 //////////
@@ -80,8 +102,12 @@ const init = function () {
   recipeView.addHandlerRender(controlRecipe);
   recipeView.addHandlerClosePopup();
   searchView.addHandlerSearch(controlSearchResults);
-  resultsView.addHandlerShowRecipe(controlDisplayRecipe);
   resultsView.addHandlerRandomRecipe(controlRandomResult);
+  resultsView.addHandlerShowRecipe(controlDisplayRecipe);
+  resultsView.addHandlerAddBookmark(controlAddRemoveBookmark);
+  bookmarksView.addHandlerShowBookmarkRecipe(controlDisplayRecipe);
+  bookmarksView.addHandlerDeleteBookmark(controlAddRemoveBookmark);
+  bookmarksView.addHandlerRender(controlBookmarks);
 
   addHandlerRenderYear(controlCopyrightYear);
 };

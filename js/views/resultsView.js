@@ -4,12 +4,13 @@ class ResultsView extends View {
   _parentElement = document.querySelector(".meals");
 
   _generateMarkup() {
-    // console.log(this._data);
-
-    return this._data.map(this._generateMarkupResults).join("");
+    // console.log(this._data); //==> model.state.search.results
+    return this._data.search.results
+      .map((result) => this._generateMarkupResults(result, this._data))
+      .join("");
   }
 
-  _generateMarkupResults(results) {
+  _generateMarkupResults(results, _data) {
     return `<li class="meal-preview">
    <a href="#${results.id}" class="meal-item">
      <img
@@ -20,10 +21,16 @@ class ResultsView extends View {
      <div class="meal-text-body">
        <div class="meal-text-box">
          <h3 class="meal-name">${results.title}</h3>
-         <span>Category: <span class="category">${results.category}</span></span>
+         <span>Category: <span class="category">${
+           results.category
+         }</span></span>
        </div>
        <svg
-         class="w-6 h-6 save-fav-meal"
+         class="w-6 h-6 save-fav-meal ${
+           _data.bookmarks.find((bookmark) => bookmark.id === results.id)
+             ? "fill"
+             : ""
+         }"
          fill="none"
          stroke="currentColor"
          viewBox="0 0 24 24"
@@ -45,12 +52,46 @@ class ResultsView extends View {
     this._parentElement.addEventListener("click", function (e) {
       if (!e.target.closest(".meal-preview")) return;
 
+      // Prevent "a" tag to change url #hash with "preventDefault()" because
+      // in "recipeView" I added the "hashchange" event. So, if I click on the
+      // element, The "a" tag will change the url hash even If I clicked in the
+      // "save-fav-el". To prevent this, the "preventDefault()" method of the Event
+      // interface tells the user agent that if the event does not get explicitly handled,
+      // its default action should not be taken as it normally would be
+      if (e.target.closest(".save-fav-meal")) {
+        // console.log(e.cancelable); // To know if the event is cancelable or not(true || false).
+        e.preventDefault();
+        return;
+      }
+
       handler();
     });
   }
 
   addHandlerRandomRecipe(handler) {
     window.addEventListener("load", handler);
+  }
+
+  addHandlerAddBookmark(handler) {
+    //I need event delegation because the "save btn" doesn't exist when the app load
+    this._parentElement.addEventListener("click", function (e) {
+      const btn = e.target.closest(".save-fav-meal");
+      if (!btn) return;
+
+      const btnClassList = btn.classList;
+      const id = e.target.closest(".meal-item").getAttribute("href").slice(1); // #123456 => 123456
+      const bookmarked = true;
+
+      if (btnClassList.contains("fill")) {
+        btnClassList.remove("fill");
+        // REMOVE FROM BOOKMARKS ARRAY --> From the same ID
+        handler(id, !bookmarked);
+        return;
+      }
+
+      btnClassList.add("fill");
+      handler(id, bookmarked);
+    });
   }
 }
 

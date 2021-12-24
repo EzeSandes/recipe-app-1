@@ -24,6 +24,7 @@ export const state = {
     query: "",
     results: [],
   },
+  bookmarks: [],
 };
 
 ////////
@@ -108,8 +109,39 @@ export const loadSearchResults = async function (query) {
 export const loadRandomRecipe = async function () {
   try {
     await getDataStateSearch(`${API_URL}random.php`);
+
+    state.recipe.id = state.search.results[0].id;
   } catch (err) {
     console.error("Error ⛔⛔⛔", err);
     throw err;
   }
 };
+
+const persistBookmarks = function () {
+  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+};
+
+export const addBookmark = function (recipe) {
+  // Add bookmark
+  state.bookmarks.push(recipe);
+
+  // Mark current recipe as bookmark
+  //"state.recipe.id": The one that is currently load
+  if (recipe.id === state.recipe.id) state.recipe.bookmarked = true;
+
+  persistBookmarks();
+};
+
+export const deleteBookmark = function (recipeID) {
+  const index = state.bookmarks.findIndex((recipe) => recipe.id === recipeID);
+  state.bookmarks.splice(index, 1);
+
+  persistBookmarks();
+};
+
+const init = function () {
+  const storage = localStorage.getItem("bookmarks");
+  if (storage) state.bookmarks = JSON.parse(storage);
+};
+
+init();
